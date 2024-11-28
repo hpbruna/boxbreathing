@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Breathing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    #breathingBox {
+      position: relative;
+      width: calc(33.33vh);
+      height: calc(33.33vh);
+      background-color: #4caf50;
+      animation: boxBreathing 16s infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      font-size: calc(33.33vh);
+      text-align: center;
+    }
+
+    #cycleCounter {
+      position: absolute;
+      z-index: 10;
+    }
+
+    @keyframes boxBreathing {
+      0% { 
+        transform: scale(1); 
+        background-color: #4caf50; 
+      }
+      25% { 
+        transform: scale(3); 
+        background-color: #2196f3; 
+      }
+      50% { 
+        transform: scale(3); 
+        background-color: #ff5722; 
+      }
+      75% { 
+        transform: scale(1); 
+        background-color: #ffc107; 
+      }
+      100% { 
+        transform: scale(1); 
+        background-color: #4caf50; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="breathingBox">
+    <div id="cycleCounter">1</div>
+  </div>
+
+  <script>
+    const counterElement = document.getElementById('cycleCounter');
+    let cycleCount = 1;
+
+    setInterval(() => {
+      cycleCount++;
+      counterElement.textContent = cycleCount;
+    }, 16000); // Matches the animation cycle duration (16s)
+  </script>
+</body>
+</html>
